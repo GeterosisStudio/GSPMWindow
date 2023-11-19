@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <cstdlib>
 #include <regex>
+#include <windows.h> 
 //#include "dependencies/include/nlohmann/json.hpp"
 
 void runProgram(const std::string& programPath, const std::string& filePath, const std::string& parameters = "") {
@@ -31,7 +32,7 @@ int main(int argc, char* argv[]) {
      */
 
 
-
+    ShowWindow(GetConsoleWindow(), SW_HIDE);
 
     std::string selfPath(argv[0]);
     //std::cout << selfPath << std::endl;
