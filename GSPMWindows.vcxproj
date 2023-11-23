@@ -126,6 +126,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>copy "E:\Projects\core\GeterozisProjectManager\GSPMWindows\x64\Release\GSPMWindows.exe" "E:\Projects\core\GeterozisProjectManager\GeterosisProjectManager\GSPMWindows.exe"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
