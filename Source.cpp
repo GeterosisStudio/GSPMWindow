@@ -26,7 +26,7 @@ nlohmann::json data(std::string file = "")
 std::string getPythonPath(std::string selfPath)
 
 {
-    std::string configFile = std::regex_replace(selfPath, std::regex("GSPMWindows.exe"), "Settings/Configs/Python.json");
+    std::string configFile = std::regex_replace(selfPath, std::regex("GSPMWindows.exe"), "Python.json");
     std::string pythonPath;
     nlohmann::json config = data(configFile);
 
