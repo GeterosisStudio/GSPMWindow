@@ -76,8 +76,18 @@ int main(int argc, char* argv[])
     }
     else
     {
-        std::string parameters = argv[1];
-        runProgram(pythonPath, mainPython, parameters);
+        if (argv[1] == "-console")
+        {
+            ShowWindow(GetConsoleWindow(), SW_HIDE);
+            runProgram(pythonPath, mainPython);
+        }
+        else
+        {
+            std::cout << argv[1] << std::endl;
+            ShowWindow(GetConsoleWindow(), SW_SHOW);
+            std::string parameters = argv[1];
+            runProgram(pythonPath, mainPython, parameters);
+        }
     }
     return 0;
 
