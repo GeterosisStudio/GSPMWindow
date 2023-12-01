@@ -26,6 +26,7 @@ nlohmann::json data(std::string file = "")
 std::string getPythonPath(std::string selfPath)
 
 {
+    //std::string configFile = "E:/Projects/core/GeterozisProjectManager/GeterosisProjectManager/Python.json";
     std::string configFile = std::regex_replace(selfPath, std::regex("GSPMWindows.exe"), "Python.json");
     std::string pythonPath;
     nlohmann::json config = data(configFile);
@@ -69,24 +70,24 @@ int main(int argc, char* argv[])
     ShowWindow(GetConsoleWindow(), SW_HIDE);
 
     std::string pythonPath = getPythonPath(argv[0]);
-    std::string mainPython = std::regex_replace(argv[0], std::regex("GSPMWindows.exe"), "main.py");
+    //std::string mainPython = "E:/Projects/core/GeterozisProjectManager/GeterosisProjectManager/main.py";
+	std::string mainPython = std::regex_replace(argv[0], std::regex("GSPMWindows.exe"), "main.py");
 
     if (argc < 2) {
         runProgram(pythonPath, mainPython);
     }
     else
     {
-        if (argv[1] == "-console")
+        if (strcmp(argv[1], "-console") == 0)
         {
-            ShowWindow(GetConsoleWindow(), SW_HIDE);
+            std::cout << argv[0] << std::endl;
+            std::cout << argv[1] << std::endl;
+            ShowWindow(GetConsoleWindow(), SW_SHOW);
             runProgram(pythonPath, mainPython);
         }
         else
         {
-            std::cout << argv[1] << std::endl;
-            ShowWindow(GetConsoleWindow(), SW_SHOW);
-            std::string parameters = argv[1];
-            runProgram(pythonPath, mainPython, parameters);
+            runProgram(pythonPath, mainPython, argv[1]);
         }
     }
     return 0;
