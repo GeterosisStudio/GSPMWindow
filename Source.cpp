@@ -26,7 +26,7 @@ nlohmann::json data(std::string file = "")
 std::string getPythonPath(std::string selfPath)
 
 {
-    //std::string configFile = "E:/Projects/core/GeterozisProjectManager/GeterosisProjectManager/Python.json";
+
     std::string configFile = std::regex_replace(selfPath, std::regex("GSPMWindows.exe"), "Python.json");
     std::string pythonPath;
     nlohmann::json config = data(configFile);
@@ -70,7 +70,6 @@ int main(int argc, char* argv[])
     ShowWindow(GetConsoleWindow(), SW_HIDE);
 
     std::string pythonPath = getPythonPath(argv[0]);
-    //std::string mainPython = "E:/Projects/core/GeterozisProjectManager/GeterosisProjectManager/main.py";
 	std::string mainPython = std::regex_replace(argv[0], std::regex("GSPMWindows.exe"), "main.py");
 
     if (argc < 2) {
